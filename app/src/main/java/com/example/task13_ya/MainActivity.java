@@ -18,6 +18,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+/**
+ * @author Darya student@email.com
+ *
+ * @version 1.0
+ *
+ * @since 18/01/2026
+ *
+ * This class manages the main screen of the event planning application, handling various setup dialogs.
+ */
 public class MainActivity extends AppCompatActivity
 {
     private TextView tvSummary;
@@ -27,6 +36,12 @@ public class MainActivity extends AppCompatActivity
     private Button btn3;
     private Button btn4;
 
+    /**
+     * Inflates the options menu for the activity.
+     *
+     * @param menu The options menu in which you place your items.
+     * @return boolean Return true for the menu to be displayed.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -35,9 +50,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     /**
-     * Handles action bar item clicks.
-     * <p>
-     * This method is called whenever an item in your options menu is selected.
+     * Handles selection of items from the options menu, such as navigating to the credits screen.
      *
      * @param item The menu item that was selected.
      * @return boolean Return false to allow normal menu processing to proceed, true to consume it here.
@@ -53,6 +66,12 @@ public class MainActivity extends AppCompatActivity
         }
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * Initializes the activity, sets the content view, and sets up click listeners for the buttons.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down then this Bundle contains the data it most recently supplied in onSaveInstanceState(Bundle).
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -94,6 +113,9 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
+    /**
+     * Displays a reset confirmation dialog to clear the background and summary text.
+     */
     private void showResetDialog()
     {
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_btn4, null);
@@ -113,9 +135,9 @@ public class MainActivity extends AppCompatActivity
         btnNo.setOnClickListener(v -> ad.cancel());
         ad.show();
     }
+
     /**
-     * Opens a dialog with EditText and RatingBar.
-     * Shows a Toast message with the input data upon submission.
+     * Opens a dialog for the user to provide an organizer name and a rating.
      */
     private void showRatingDialog()
     {
@@ -141,6 +163,10 @@ public class MainActivity extends AppCompatActivity
         btnCancel.setOnClickListener(v -> ad.cancel());
         ad.show();
     }
+
+    /**
+     * Displays an equipment selection dialog with various checkboxes for event supplies.
+     */
     private void showEquipmentDialog()
     {
         View myView = getLayoutInflater().inflate(R.layout.dialog_btn2, null);
@@ -176,6 +202,9 @@ public class MainActivity extends AppCompatActivity
         ad.show();
     }
 
+    /**
+     * Displays a dialog for selecting an event type, which changes the layout background color.
+     */
     private void showEventDialog()
     {
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_btn1, null);
@@ -208,7 +237,7 @@ public class MainActivity extends AppCompatActivity
         });
         idHapning.setOnClickListener(v -> {
             mainLayout.setBackgroundColor(Color.GREEN);
-            tvSummary.setText("Event: Urban Picnic");
+            tvSummary.setText("Event: hepning ");
             ad.cancel();
         });
         ad.show();
